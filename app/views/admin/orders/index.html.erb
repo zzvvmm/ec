@@ -1,0 +1,20 @@
+<% provide(:title, t("orders.admin_title")) %>
+<section class="panel important">
+  <h2><%= t "admin.orders" %></h2>
+</section>
+<div class="container">
+  <%= render "form_search_filter" %>
+</div>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <%= render "thead_order" %>
+    </thead>
+    <tbody>
+      <%= render @orders %>
+    </tbody>
+  </table>
+</div>
+<div>
+  <%= paginate @orders %>
+</div>

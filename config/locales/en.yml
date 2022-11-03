@@ -1,33 +1,95 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  pages:
+    logout: "Logout"
+    settings: "Settings"
+    profile: "Profile"
+    account: "Account"
+    title: "Electronic"
+    home: "Home"
+    cart: "Cart"
+    detail: "Product detail"
+    login: "Login"
+    category: "Category"
+    brand: "Brand"
+    remove: "Remove"
+    pay: "Pay"
+    continue_buy: "Continue to buy"
+    product_name: "Product name"
+    price: "Price"
+    quantity: "Quantity"
+    actual_price: "Actual price"
+    total_of_money: "Total:"
+    empty_product: "There are currently no products"
+    details:
+      total_rate: "%{rate_count} rates"
+      price_product: "Price: %{price}"
+      buy_now: "Buy now"
+      add_to_cart: "Add to cart"
+      residual: "%{residual} products are available"
+  format:
+    vnd: "VND"
+  flash:
+    not_found_product: "No information found for this product"
+    cart_success: "The product has been added to cart"
+    cart_update: "The product has been updated to the quantity in the cart"
+    not_enough: "Current product is not enough"
+    vi: "VI"
+    en: "EN"
+  sessions:
+    log_in: "Login"
+    email: "Email"
+    password: "Password"
+    new_user: "don't account yet!"
+    sign_up_now: "Sign up now"
+    invalid_email_password: "invalid email or password!"
+    login_please: "Let login with your account, please!"
+    admin_please: "You isn't Admin role"
+    error_not_find: "user not find"
+    remember_me: "Remember me in this computer"
+  admin:
+    footer: "welcome to Electronic store || phone contact: 0339600111"
+    dashboard: "Dashboard"
+    orders: "Orders Management"
+    products: "Products Management"
+    categories: "Categories Management"
+    users: "Users Management"
+    search: "search"
+  orders:
+    admin_title: "Invoices Management"
+    find_placeholder: "What are you looking for?"
+    id: "OrderID"
+    username: "Username"
+    address: "Address"
+    quantity: "Quantity"
+    total_of_money: "Total"
+    status: "Status"
+    action: "Action"
+    filter_by: "Filter by"
+    change: "Change"
+    details_name: "Details name"
+    details_desc: "Details description"
+    details_title: "Change Order Status"
+    admin_email_sent: "Email sent to this user!"
+    reject_success: "Change reject status success. "
+    reject_failed: "Only pending status and accept permission!"
+    cancel_failed: "Cancel state is not change by admin!"
+    accept_success: "Change accept status success."
+    accept_failed: "Only pending status permission!"
+    pending_failed: "Cannot change pending or other states to pending!"
+    change_status: "Change your order status"
+    mail_title: "Electronic Ecommerce"
+    mail_greeting: "Hi "
+    mail_content: "Admin changed your order status to "
+    param_not_in_status: "Not find this status! try again"
+    user_canceled_order: "User canceled this order, not change this status"
+  products:
+    admin_title: "Products Management"
+    find_placeholder: "What are you looking for?"
+    id: "ProductID"
+    name: "Name"
+    price: "Price"
+    image: "Image"
+    discount: "Discount"
+    residual: "Residual"
+    description: "description"
+    action: "Action"

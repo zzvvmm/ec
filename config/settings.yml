@@ -1,0 +1,21 @@
+rating_min: 1
+rating_max: 5
+content_max: 250
+length:
+  max_length_email: 150
+  min_length_username: 6
+  max_length_username: 50
+  min_length_password: 6
+currency_regex: !ruby/regexp /\A[+-]?(\d+\.\d+)?\Z/
+size:
+  page_record_medium: 6
+admin:
+  order_status:
+    pending: 0
+    accept: 1
+    cancel: 2
+    reject_: 3
+  order_option:
+    oldest: "0"
+    newest: "1"
+    status: "2"

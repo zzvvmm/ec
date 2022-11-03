@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title yield :title %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_pack_tag "application", "data-turbolinks-track": "reload" %>
+  </head>
+
+  <body>
+    <%= render "admin/layouts/header_admin" %>
+    <%= render "admin/layouts/nav_admin" %>
+    <main role="main">
+      <% flash.each do |message_type, message| %>
+        <div class="text-center alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+      <%= yield %>
+    </main>
+    <%= render "admin/layouts/footer_admin" %>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<% provide(:title, t("pages.home")) %>
+<section class="cat_product_area section_gap">
+  <div class="container">
+    <div class="row flex-row-reverse">
+      <div class="col-lg-3">
+        <div class="left_sidebar_area">
+          <%= render "products/category_product" %>
+          <%= render "products/brand_product" %>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="latest_product_inner">
+          <div class="row">
+            <%= render partial: "products/all_product", collection: @products, as: :product %>
+          </div>
+        </div>
+        <%= paginate @products %>
+      </div>
+    </div>
+  </div>
+</section>
