@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
   has_many :order_details, dependent: :destroy
   belongs_to :user
+  has_many :products, through: :order_details
 
   enum status: {pending: 0, accept: 1, cancel: 2, reject_: 3}
   enum sort: {oldest: 0, newest: 1, status: 2, default: 3}
@@ -12,8 +13,7 @@ class Order < ApplicationRecord
   class << self
     def search keyword
       joins(:user)
-        .joins(:address)
-        .where("users.name LIKE ? or addresses.address LIKE ?", "%#{keyword}%", "%#{keyword}%")
+        .where("users.name LIKE ? or users.address LIKE ?", "%#{keyword}%", "%#{keyword}%")
     end
   end
 end
