@@ -34,12 +34,12 @@ class CartsController < ApplicationController
   end
 
   def update_cart
-    if @item
-      @item["quantity"] = params[:quantity].to_i
-      flash.now[:success] = t "flash.update_cart_success"
-    else
-      flash[:danger] = t "flash.update_cart_fail"
-    end
+      if @item
+        @item["quantity"] = params[:quantity].to_i
+        flash.now[:success] = t "flash.update_cart_success"
+      else
+        flash[:danger] = t "flash.update_cart_fail"
+      end
     redirect_to carts_path
   end
 
