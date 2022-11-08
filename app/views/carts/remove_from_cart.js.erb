@@ -1,0 +1,6 @@
+$("#cart_items").html(
+  "<%= j render partial: "carts/item", collection: @cart_items %>"
+);
+$("#cart-total-money").html(
+  "<%= number_to_currency_format total_of_money %>"
+);

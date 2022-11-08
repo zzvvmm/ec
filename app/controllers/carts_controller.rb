@@ -30,17 +30,23 @@ class CartsController < ApplicationController
     else
       flash[:danger] = t "flash.remove_cart_fail"
     end
-    redirect_to carts_path
+    respond_to do |format|
+      format.html{redirect_to carts_path}
+      format.js
+    end
   end
 
   def update_cart
-      if @item
-        @item["quantity"] = params[:quantity].to_i
-        flash.now[:success] = t "flash.update_cart_success"
-      else
-        flash[:danger] = t "flash.update_cart_fail"
-      end
-    redirect_to carts_path
+    if @item
+      @item["quantity"] = params[:quantity].to_i
+      flash.now[:success] = t "flash.update_cart_success"
+    else
+      flash[:danger] = t "flash.update_cart_fail"
+    end
+    respond_to do |format|
+      format.html{redirect_to carts_path}
+      format.js
+    end
   end
 
   private
