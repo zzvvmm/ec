@@ -1,5 +1,5 @@
 User.create!(
-  email: "khanhtang1403@gmail.com",
+  email: "a2suisei0@gmail.com",
   name: "Tang Ngoc Khanh",
   phone: "1111111111",
   address: "caugiayhanoivietnamdadasd1214124",

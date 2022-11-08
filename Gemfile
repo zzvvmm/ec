@@ -39,6 +39,7 @@ gem "money"
 gem "mini_magick", "4.9.5"
 gem "chartkick"
 gem "groupdate"
+gem "figaro"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
