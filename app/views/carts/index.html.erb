@@ -12,7 +12,9 @@
         </tr>
       </thead>
       <tbody id="cart_items">
-        <%= render partial: "carts/item", collection: @cart_items %>
+        <% @cart_items.each do |item| %>
+          <%= render partial: "carts/item", locals: {item: item} %>
+        <% end %>
       </tbody>
       <tfoot>
         <tr>
