@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2022_11_07_024722) do
   end
 
   create_table "orders", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "status", default: 1
+    t.integer "status", default: 0
     t.float "total_of_money"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

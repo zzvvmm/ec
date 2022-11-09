@@ -52,6 +52,7 @@ class Admin::OrdersController < Admin::BaseController
     @order = order
     if @order.update(status: params[:status].to_i)
       OrderMailer.change_status_order(@order.user, @order.status).deliver_now
+      AdminMailer.week_summary.deliver_now
       flash[:info] = message
       redirect_to admin_orders_path
     else
@@ -68,6 +69,7 @@ class Admin::OrdersController < Admin::BaseController
     ActiveRecord::Base.transaction do
       @order = order
       if @order.pending?
+        update_product_quantity :+
         update_by_status @order, t("orders.reject_success") + t("orders.admin_email_sent")
       elsif @order.accept?
         update_product_quantity :+
