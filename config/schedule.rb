@@ -18,6 +18,6 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-every '50 02 ** Wed,Sun' do
+every '50 02 * * Wed,Sun' do
   rake "week_summary"
 end
