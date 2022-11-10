@@ -9,6 +9,10 @@ class Order < ApplicationRecord
   scope :order_oldest, ->{order :updated_at}
   scope :order_newest, ->{order updated_at: :desc}
   scope :order_status, ->{order :status}
+  scope :this_week, (lambda do
+    where(created_at:
+      DateTime.now.beginning_of_week..DateTime.now.end_of_week)
+  end)
 
   class << self
     def search keyword

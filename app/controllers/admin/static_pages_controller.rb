@@ -7,7 +7,7 @@ class Admin::StaticPagesController < Admin::BaseController
   end
 
   def order_total_money_month
-    render json: Order.group_by_month(:created_at).sum(:total_of_money)
+    render json: Order.accept.group_by_month(:created_at).sum(:total_of_money)
   end
 
   def order_total_money_quarter

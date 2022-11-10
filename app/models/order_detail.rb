@@ -5,6 +5,11 @@ class OrderDetail < ApplicationRecord
   before_save :set_total_price
   after_create :change_product_quantity
 
+  scope :this_week, (lambda do
+    where(created_at:
+      DateTime.now.beginning_of_week..DateTime.now.end_of_week)
+  end)
+
   def unit_price
     if persisted?
       self[:price]

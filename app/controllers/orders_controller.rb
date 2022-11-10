@@ -15,15 +15,15 @@ class OrdersController < ApplicationController
       session[:cart] = nil
       redirect_to root_path
     end
-  rescue ActiveRecord::RecordInvalid
-    render :new
+    rescue ActiveRecord::RecordInvalid
+      render :new
   end
 
   private
 
   def order_params
-    params.require(:order).permit(:name_customer, :phone_number, :address,
-                                  :total_money)
+    params.require(:order).permit(:name_customer, :phone_number, :address,  
+                                  :total_of_money)
   end
 
   def create_order_details

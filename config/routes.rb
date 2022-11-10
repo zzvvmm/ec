@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       root "static_pages#index"
       resources :orders, only: [:index, :edit, :update]
       resources :products
+      resources :xlsx
       get :order_status, to: "static_pages#order_status"
       get :order_total_money_month, to: "static_pages#order_total_money_month"
       get :order_total_money_quarter, to: "static_pages#order_total_money_quarter"

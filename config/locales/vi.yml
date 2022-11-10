@@ -1,4 +1,5 @@
 vi:
+  export_excel: "Xuất file excel"
   pages:
     logout: "Đăng xuất"
     settings: "Cài đặt"
@@ -59,6 +60,14 @@ vi:
     users: "Quản lý người dùng"
     search: "tìm kiếm"
     confirm_delete: "Có phải bạn muốn xóa?"
+    week_summary: "Tổng kết cuối tuần"
+    customer_summary: "Tổng kết khách hàng"
+    customer: "Khách hàng"
+    orders: "Số đơn"
+    product: "Sản phẩm"
+    buy_count: "Lượt mua"
+    hi: "Xin chào"
+    subject: "Tổng kết cuối tuần"
   orders:
     admin_title: "Invoices Management"
     find_placeholder: "Nhập tìm kiếm?"
