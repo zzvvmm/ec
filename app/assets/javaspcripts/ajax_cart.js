@@ -4,7 +4,7 @@ $(document).ready(function(){
     var id = $(this).parent().find('.cart_product_id').val();
     var quantity = $(this).val();
     $.ajax({
-      url: '/carts/update_cart/' + id,
+      url: '/carts/update_cart/' + id + '.js',
       method: 'PUT',
       data: {quantity: quantity},
       headers: {'X-CFRS-Token': cfrsToken}
