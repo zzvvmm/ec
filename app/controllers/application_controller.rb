@@ -4,6 +4,12 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include CartsHelper
 
+  helper_method :favorite_text
+
+  def favorite_text
+    return @favorite_exists ? "UnFavorite" : "Favorite"
+  end
+
   private
   
   def set_locale
