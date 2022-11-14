@@ -11,16 +11,18 @@ class CartsController < ApplicationController
 
   def add_to_cart
     if @item
-      @item["quantity"] += params[:quantity].to_i
+      @item[:quantity] += params[:quantity].to_i
       flash[:info] = t "flash.cart_update"
     else
-      current_cart << {
+      session[:cart] << {
         product_id: @product.id, quantity: params[:quantity].to_i
       }
       flash[:success] = t "flash.cart_success"
     end
-    session[:cart] = current_cart
-    redirect_to product_path
+    respond_to do |format|
+      format.html{redirect_to product_path}
+      format.js
+    end
   end
 
   def remove_from_cart
@@ -38,7 +40,7 @@ class CartsController < ApplicationController
 
   def update_cart
     if @item
-      @item["quantity"] = params[:quantity].to_i
+      @item[:quantity] = params[:quantity].to_i
       flash.now[:success] = t "flash.update_cart_success"
     else
       flash[:danger] = t "flash.update_cart_fail"
@@ -53,7 +55,7 @@ class CartsController < ApplicationController
 
   def check_residual_quantity?
     quantity = if @item
-                 @item["quantity"] + params[:quantity].to_i
+                 @item[:quantity] + params[:quantity].to_i
                else
                  params[:quantity].to_i
                end

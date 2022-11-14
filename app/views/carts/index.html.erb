@@ -7,13 +7,38 @@
           <th style="width:50%"><%= t "pages.product_name" %></th>
           <th style="width:10%"><%= t "pages.price" %></th>
           <th style="width:8%"><%= t "pages.quantity" %></th>
-          <th style="width:22%" class="text-center"><%= t "pages.price" %></th>
+          <th style="width:22%" class="text-center"><%= t "pages.actual_price" %></th>
           <th style="width:10%"> </th>
         </tr>
       </thead>
-      <tbody id="cart_items">
+      <tbody>
+        <% @cart_items.reverse! %>
         <% @cart_items.each do |item| %>
-          <%= render partial: "carts/item", locals: {item: item} %>
+          <tr>
+            <td>
+              <div class="row">
+                <div class="col-sm-2 hidden-xs">
+                  <img src="/assets/computer.jpg" alt="Sản phẩm 1" class="img-responsive" width="100">
+                </div>
+                <div class="col-sm-10">
+                  <h4 class="product_name"><%= item[:product].name %></h4>
+                </div>
+              </div>
+            </td>
+            <td class="product_price"><%= number_to_currency_format item[:product].price %></td>
+            <%= form_with(url: update_carts_path(item[:product]), local: false, method: :put) do |f| %>
+              <td class="quantity">
+                <%= f.number_field :quantity, value: item[:quantity], min: 1, class: "form-control text-center change-quatity"%>
+                <%= f.hidden_field :id, value: item.dig(:product)&.id, class: "cart_product_id" %>
+              </td>
+            <% end %>
+            <td data-th="subtotal" class="text-center" id="item-product-allprice_<%= item[:product].id %>"><%= number_to_currency_format line_total_price(item) %></td>
+            <td class="actions">
+              <%= link_to remove_from_carts_path(item[:product]), class: "btn btn-warning btn-block", remote: true do %>
+                <%= t "pages.remove" %>
+              <% end %>
+            </td>
+          </tr>
         <% end %>
       </tbody>
       <tfoot>

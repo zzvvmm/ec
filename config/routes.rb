@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'favorites/create'
-  get 'favorites/destroy'
   scope "(:locale)", locale: /en|vi/ do
     root "static_pages#home"
 
@@ -9,9 +7,8 @@ Rails.application.routes.draw do
     get "/login", to: "sessions#new"
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
-
-    post "favorite_products", to: "favorite_products#create", defaults: { format: 'js' }, :as => 'create_favorited_product'
-    delete "favorite_products/id", to: "favorite_products#destroy", defaults: { format: 'js' }, :as => 'favorited_product'
+    
+    get "favorites/update"
 
     resources :products, only: [:show]
     resources :orders, only: [:new, :create]
