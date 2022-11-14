@@ -2,7 +2,6 @@ class User < ApplicationRecord
   has_many :rates, dependent: :destroy
   has_many :orders, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  has_many :favorite_products, through: :favorites, source: :favorited, source_type: "Product"
 
   attr_accessor :remember_token
 
