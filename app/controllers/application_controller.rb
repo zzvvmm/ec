@@ -3,12 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
   include CartsHelper
-
-  helper_method :favorite_text
-
-  def favorite_text
-    return @favorite_exists ? "UnFavorite" : "Favorite"
-  end
+  include FavoritesHelper
 
   private
   

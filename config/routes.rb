@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'favorites/update'
   scope "(:locale)", locale: /en|vi/ do
     root "static_pages#home"
 

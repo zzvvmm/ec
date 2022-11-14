@@ -29,6 +29,11 @@ module CartsHelper
     item[:product].price * item[:quantity]
   end
 
+  def line_total_price_1 id
+    product = Product.find_by(id: id)
+    product.price * item[:quantity]
+  end
+
   def total_of_money
     items = get_line_items_in_cart
     items.reduce(0){|a, e| a + e[:product].price * e[:quantity]}
