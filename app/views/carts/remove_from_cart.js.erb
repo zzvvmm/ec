@@ -1,3 +1,7 @@
 $("#cart-total-money").html(
   "<%= t "pages.total_of_money" %> <%= number_to_currency_format total_of_money %>"
 );
+
+$("#item-<%= @item.id %>").html(
+  "<%= t "pages.total_of_money" %> <%= number_to_currency_format total_of_money %>"
+);
